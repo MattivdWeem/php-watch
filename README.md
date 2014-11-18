@@ -1,7 +1,10 @@
 PHP Watch
 =========
 
-After [Realtime php task runner](https://github.com/MattivdWeem/Realtime-php-task-runner) I wanted to make something better, since i had to travel for 4 hours today i did some proof of concept in the train.
+So.. [Realtime php task runner](https://github.com/MattivdWeem/Realtime-php-task-runner) was kinda an test, since i had to travel for 4 hours today i did some proof of concept in the train.
+
+### What does it do?
+PHP watch watches your folders, filers or w/e task you have given in. When one of the files changes, gets deleted or some new one is created it runs a task.
 
 ### How to start?
 
