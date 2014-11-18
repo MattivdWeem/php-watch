@@ -18,12 +18,20 @@ $sleep 	= 500;
 // constants
 $running = true;
 $version = array();
-$versionCurrent= array();
+$versionCurrent = array();
 
 $tasks = json_decode(file_get_contents('tasks.json'));
 foreach($tasks as $key => $t):
 	$version[$key] = '';
 	$versionCurrent[$key] = '';
+	if(isset($t->onLaunch) && $t->onLaunch != ''):
+		$toInc = 'tasks/'.$t->onLaunch.'.php';
+		if(file_exists($toInc)):
+				include($toInc);
+			else:
+				echo ('task executable for: '.$key.' not found..'."\n");
+			endif;
+		endif;
 endforeach;
 while($running):
 	foreach($tasks as $key => $t):
@@ -32,11 +40,13 @@ while($running):
 			// no update
 		else:
 			$version[$key] = $versionCurrent[$key];
-			$toInc = 'tasks/'.$t->onUpdate.'.php';
-			if(file_exists($toInc)):
-				include($toInc);
-			else:
-				echo ('task executable for: '.$key.' not found..'."\n");
+			if(isset($t->onUpdate) && $t->onUpdate != ''):
+				$toInc = 'tasks/'.$t->onUpdate.'.php';
+				if(file_exists($toInc)):
+					include($toInc);
+				else:
+					echo ('task executable for: '.$key.' not found..'."\n");
+				endif;
 			endif;
 		endif;
 	endforeach;

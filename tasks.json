@@ -4,5 +4,13 @@
 		"watch": "test/markdown/*.md",
 		"output": "test/markdown/output/"
 
+	},
+
+	"host": {
+		"onLaunch": "server/startServer",
+		"liveReload": true,
+		"start": "test/markdown/output",
+		"watch": "*/*.*",
+		"port": 5000
 	}
 }
