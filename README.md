@@ -38,4 +38,13 @@ It wille be included(on each update time(so do it efficent with include_once(whe
 
 Just execute: `php watch.php` In your terminal, this will start the watcher.
 
-:).
+
+#### why?
+
+q: Why do you use: `shell_exec('php includes/version.php '.$t->watch);` ?
+
+a: PHP does not handle chaning files by it's self in one continious script, so we load up a new php file for the call.
+___
+q: Why do you use json for the options?
+
+a: json is awsome, it's clean and easy to use
