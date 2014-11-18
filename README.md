@@ -19,17 +19,25 @@ PHP watch watches your folders, filers or w/e task you have given in. When one o
 Your tasks.json should look something like this:
 
 
-    {
-	    "markdown": {
-	    	"onUpdate": "markdown/parseMarkdown",
-		    "watch": "test/markdown/*.md",
-		    "output": "test/markdown/output/"
+	{
+		"markdown": {
+			"onUpdate": "markdown/parseMarkdown",
+			"watch": "test/markdown/*.md",
+			"output": "test/markdown/output/"
 
-	    }
-    }
+		},
+
+		"host": {
+			"onLaunch": "server/startServer",
+			"liveReload": true,
+			"start": "test/markdown/output",
+			"watch": "*/*.*",
+			"port": 5000
+		}
+	}
 
 
-You are able to trow in extra options and loading them in your custom task by $t->youroption here. The watch and onupdate are required!
+You are able to trow in extra options and loading them in your custom task by $t->youroption here. Watch is required.
 
 The onUpdate includes the file that will be included (tasks/{youronupdate}.php) This should be filled in if you want to run a function on update.
 It wille be included(on each update time(so do it efficent with include_once(when needed))). You may use code like exit or die in this file to close the script (if you want to).
