@@ -1,14 +1,8 @@
 {
-	"checkTextFiles": {
-		"onUpdate": "checkTextFiles",
-		"watch": "test/*.txt"
-	},
-	"checkDB": {
-		"onUpdate": "checkDB",
-		"watch": "test/data/*.ds"
-	},
-	"staticData": {
-		"onUpdate": "staticData",
-		"watch": "../staticdata/data/static/*.*"
+	"markdown": {
+		"onUpdate": "markdown/parseMarkdown",
+		"watch": "test/markdown/*.md",
+		"output": "test/markdown/output/"
+
 	}
 }

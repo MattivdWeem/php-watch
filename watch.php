@@ -13,7 +13,7 @@
 
 
 //Time between loops in ms
-$sleep 	= 2000;
+$sleep 	= 500;
 
 // constants
 $running = true;
