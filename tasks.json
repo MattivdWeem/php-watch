@@ -1,0 +1,14 @@
+{
+	"checkTextFiles": {
+		"onUpdate": "checkTextFiles",
+		"watch": "test/*.txt"
+	},
+	"checkDB": {
+		"onUpdate": "checkDB",
+		"watch": "test/data/*.ds"
+	},
+	"staticData": {
+		"onUpdate": "staticData",
+		"watch": "../staticdata/data/static/*.*"
+	}
+}
