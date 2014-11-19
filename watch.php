@@ -27,11 +27,11 @@ foreach($tasks as $key => $t):
 	if(isset($t->onLaunch) && $t->onLaunch != ''):
 		$toInc = 'tasks/'.$t->onLaunch.'.php';
 		if(file_exists($toInc)):
-				include($toInc);
-			else:
-				echo ('task executable for: '.$key.' not found..'."\n");
-			endif;
+			include($toInc);
+		else:
+			echo ('task executable for: '.$key.' not found..'."\n");
 		endif;
+	endif;
 endforeach;
 while($running):
 	foreach($tasks as $key => $t):
