@@ -8,9 +8,9 @@
 
 	"host": {
 		"onLaunch": "server/startServer",
-		"liveReload": true,
 		"start": "test/markdown/output",
-		"watch": "*/*.*",
+		"watch": "test/markdown/*.md",
+		"open": true,
 		"port": 5000
 	}
 }
