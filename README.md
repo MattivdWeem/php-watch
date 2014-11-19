@@ -22,15 +22,16 @@ Your tasks.json should look something like this:
 		"markdown": {
 			"onUpdate": "markdown/parseMarkdown",
 			"watch": "test/markdown/*.md",
-			"output": "test/markdown/output/"
+			"output": "test/markdown/output/",
+			"theme": "github.html"
 
 		},
 
 		"host": {
 			"onLaunch": "server/startServer",
 			"start": "test/markdown/output",
-			"watch": "test/markdown/*.md",
 			"open": true,
+			"host": "localhost",
 			"port": 5000
 		}
 	}
@@ -41,4 +42,4 @@ It wille be included(on each update time(so do it efficent with include_once(whe
 
 ##### Run the code
 
-Just execute: `php watch.php` In your terminal, this will start the watcher.
+Just execute: `./watch` In your terminal, this will start the watcher.
