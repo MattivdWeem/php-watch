@@ -2,7 +2,8 @@
 	"markdown": {
 		"onUpdate": "markdown/parseMarkdown",
 		"watch": "test/markdown/*.md",
-		"output": "test/markdown/output/"
+		"output": "test/markdown/output/",
+		"theme": "github.html"
 
 	},
 
