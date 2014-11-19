@@ -18,7 +18,6 @@ PHP watch watches your folders, filers or w/e task you have given in. When one o
 
 Your tasks.json should look something like this:
 
-
 	{
 		"markdown": {
 			"onUpdate": "markdown/parseMarkdown",
@@ -29,14 +28,12 @@ Your tasks.json should look something like this:
 
 		"host": {
 			"onLaunch": "server/startServer",
-			"liveReload": true,
 			"start": "test/markdown/output",
-			"watch": "*/*.*",
+			"watch": "test/markdown/*.md",
+			"open": true,
 			"port": 5000
 		}
 	}
-
-
 You are able to trow in extra options and loading them in your custom task by $t->youroption here. Watch is required.
 
 The onUpdate includes the file that will be included (tasks/{youronupdate}.php) This should be filled in if you want to run a function on update.
@@ -45,14 +42,3 @@ It wille be included(on each update time(so do it efficent with include_once(whe
 ##### Run the code
 
 Just execute: `php watch.php` In your terminal, this will start the watcher.
-
-
-#### why?
-
-q: Why do you use: `shell_exec('php includes/version.php '.$t->watch);` ?
-
-a: PHP does not handle chaning files by it's self in one continious script, so we load up a new php file for the call.
-___
-q: Why do you use json for the options?
-
-a: json is awsome, it's clean and easy to use

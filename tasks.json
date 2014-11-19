@@ -9,8 +9,8 @@
 	"host": {
 		"onLaunch": "server/startServer",
 		"start": "test/markdown/output",
-		"watch": "test/markdown/*.md",
 		"open": true,
+		"host": "localhost",
 		"port": 5000
 	}
 }

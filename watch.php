@@ -35,17 +35,27 @@ foreach($tasks as $key => $t):
 endforeach;
 while($running):
 	foreach($tasks as $key => $t):
-		$versionCurrent[$key] = shell_exec('php includes/version.php '.$t->watch);
-		if($version[$key] === $versionCurrent[$key] ):
-			// no update
-		else:
-			$version[$key] = $versionCurrent[$key];
-			if(isset($t->onUpdate) && $t->onUpdate != ''):
-				$toInc = 'tasks/'.$t->onUpdate.'.php';
-				if(file_exists($toInc)):
-					include($toInc);
-				else:
-					echo ('task executable for: '.$key.' not found..'."\n");
+		// shell_exec the the version file(this will reset file times and make it able to load)
+		if(isset($t->watch) && $t->watch != ''):
+			$versionCurrent[$key] = shell_exec('php includes/version.php '.$t->watch);
+			if($version[$key] === $versionCurrent[$key] ):
+				if(isset($t->onNoUpdate) && $t->onNoUpdate != ''):
+					$toInc = 'tasks/'.$t->onNoUpdate.'.php';
+					if(file_exists($toInc)):
+						include($toInc);
+					else:
+						echo ('task executable for: '.$key.' not found..'."\n");
+					endif;
+				endif;
+			else:
+				$version[$key] = $versionCurrent[$key];
+				if(isset($t->onUpdate) && $t->onUpdate != ''):
+					$toInc = 'tasks/'.$t->onUpdate.'.php';
+					if(file_exists($toInc)):
+						include($toInc);
+					else:
+						echo ('task executable for: '.$key.' not found..'."\n");
+					endif;
 				endif;
 			endif;
 		endif;
